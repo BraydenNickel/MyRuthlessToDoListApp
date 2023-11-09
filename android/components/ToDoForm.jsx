@@ -8,8 +8,10 @@ export default function ToDoForm({ addTask }) {
   const [newTask, setNewTask] = useState('');
 
   const handleAddTask = () => {
+    if (newTask.trim() !== '') {
     addTask(newTask);
     setNewTask('');
+    }
   };
 
   return (
@@ -25,17 +27,6 @@ export default function ToDoForm({ addTask }) {
   );
 }
 const styles = StyleSheet.create({
-    task: {
-      padding: 10,
-      borderBottomWidth: 1,
-      borderColor: '#ccc',
-    },
-    completed: {
-      backgroundColor: '#e0e0e0',
-    },
-    taskText: {
-      fontSize: 16,
-    },
     form: {
       flexDirection: 'row',
       justifyContent: 'space-between',

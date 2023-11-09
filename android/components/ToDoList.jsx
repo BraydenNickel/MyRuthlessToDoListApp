@@ -19,7 +19,6 @@ export default function ToDoList({ tasks }) {
           <Pressable key={index}>
             <View style={[styles.task, styles.completed]}>
               <Text style={styles.taskText} placeholder="Add a new task">{task}</Text>
-              <Button title="Add"/>
             </View>
           </Pressable>
         ))}
@@ -39,20 +38,5 @@ const styles = StyleSheet.create({
   },
   taskText: {
     fontSize: 16,
-  },
-  form: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginHorizontal: 20,
-    marginTop: 20,
-  },
-  input: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginRight: 10,
   },
 });
