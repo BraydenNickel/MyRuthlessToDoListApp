@@ -7,7 +7,6 @@ import {
   StyleSheet,
   ScrollView,
   Text,
-  Button,
 } from 'react-native';
 
 export default function ToDoList({ tasks }) {
