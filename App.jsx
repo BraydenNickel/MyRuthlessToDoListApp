@@ -7,8 +7,8 @@
 import {useState} from 'react';
 import React from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
-import ToDoForm from './android/components/ToDoForm';
-import ToDoList from './android/components/ToDoList';
+import ToDoForm from './components/ToDoForm';
+import ToDoList from './components/ToDoList';
 
 function App() {
   const [task, setTask] = useState([
