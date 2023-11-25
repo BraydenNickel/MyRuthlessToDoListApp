@@ -9,6 +9,13 @@ import React from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 import ToDoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import MainLayout from './layouts/MainLayout';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
+
+const Stack = createStackNavigator();
 
 function App() {
   const [task, setTask] = useState([
@@ -21,12 +28,25 @@ function App() {
     setTask([...task, newTask]);
   };
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <ToDoList tasks={task} />
-        <ToDoForm addTask={addTask} />
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen name="ToDoList" component={ToDoList} />
+        <Stack.Screen name="ToDoForm">
+          {() => (
+            <MainLayout>
+              <SafeAreaView>
+                <ScrollView>
+                  <ToDoList tasks={task} />
+                  <ToDoForm addTask={addTask} />
+                </ScrollView>
+              </SafeAreaView>
+            </MainLayout>
+          )}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
